@@ -1,0 +1,417 @@
+/* .school_info {
+    z-index: 30 !important;
+    &__content {
+      display: flex;
+      width: 70vw;
+      margin: 120px auto;
+      position: relative;
+      cursor: pointer;
+      &--right {
+        flex-direction: row-reverse;
+      }
+      &:hover > .school_info__mask {
+        background-color: rgba(255, 255, 255, 0.4);
+      }
+    }
+
+    &__thumbnail {
+      top: 0;
+      width: 40vw;
+      height: 15vw;
+      object-fit: cover;
+    }
+    &__detail {
+      position: relative;
+      margin: 0 32px;
+      width: 100%;
+      h3 {
+        font-size: 32px;
+        font-weight: 900;
+        width: max-content;
+        margin-bottom: 12px;
+      }
+    }
+    &__link {
+      text-decoration: underline;
+      color: #509726;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+    }
+    &__mask {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      transition: 0.3s;
+      top: 0;
+      left: 0;
+    }
+    &__modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      background-color: rgba(255, 255, 255, 0.95);
+      z-index: 40;
+      display: none;
+      opacity: 0;
+      cursor: default;
+      transition: 0.5s;
+      &__image {
+        width: 50vw;
+        padding: 32px 5vw;
+        & > img {
+          width: 40vw;
+          height: 30vw;
+          object-fit: contain;
+          transition: 0.2s;
+        }
+        &__list {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 1vw;
+          margin-top: 24px;
+          & img {
+            width: calc(34vw / 7);
+            height: calc(34vw / 7);
+            border-radius: 12px;
+            object-fit: cover;
+            cursor: pointer;
+          }
+        }
+      }
+      &__detail {
+        width: 100%;
+        padding: 32px 5vw 32px 0;
+        position: relative;
+        overflow: auto;
+        & h3 {
+          font-size: 24px;
+          width: max-content;
+          margin-bottom: 20px;
+        }
+        & h4 {
+          font-size: 20px;
+          font-weight: 900;
+          margin: 12px 0 8px;
+        }
+        & iframe {
+          margin: auto;
+          width: 45vw;
+          margin-top: 20px;
+        }
+        & a {
+          text-decoration: underline;
+          color: #509726;
+          width: max-content;
+        }
+      }
+      &__close {
+        position: absolute;
+        top: 32px;
+        right: 64px;
+        font-size: 24px;
+        cursor: pointer;
+      }
+    }
+    .modal-active {
+      display: flex;
+    }
+  }
+
+
+  @media (max-width: 1023px) {
+
+
+  .school_info {
+    &__content {
+      display: block;
+      width: 80vw;
+      margin: 64px auto;
+    }
+    &__thumbnail {
+      width: 100%;
+      height: 20vw;
+    }
+    &__detail {
+      margin: 0;
+      h3 {
+        font-size: 24px;
+      }
+    }
+    &__link {
+      position: relative;
+      text-align: right;
+    }
+    &__modal {
+      &.active {
+        display: block;
+      }
+      &__image {
+        width: 90vw;
+        margin: 48px auto 0;
+        padding: 0;
+
+        & > img {
+          width: 100%;
+          height: 60vw;
+        }
+        &__list {
+          margin-top: 8px;
+          & img {
+            width: 12vw;
+            height: 12vw;
+            display: block;
+          }
+        }
+      }
+      &__detail {
+        padding: -0;
+        margin: 24px auto 48px;
+        width: 90vw;
+        // height: calc(100vh - 72vw - 132px);
+        & h3 {
+          display: block;
+        }
+        & iframe {
+          width: 90vw;
+        }
+      }
+      &__close {
+        position: fixed;
+        top: 8px;
+        right: 24px;
+        font-size: 20px;
+      }
+    }
+    .modal-active {
+      display: block;
+      height: 100vh;
+      padding: 24px 5vw;
+      overflow: auto;
+    }
+  }
+} */
+
+
+
+.school_info {
+    z-index: 30 !important;
+}
+
+.school_info__content {
+    display: flex;
+    width: 70vw;
+    margin: 120px auto;
+    position: relative;
+    cursor: pointer;
+}
+
+.school_info__content--right {
+    flex-direction: row-reverse;
+}
+
+.school_info__content:hover > .school_info__mask {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+.school_info__thumbnail {
+    top: 0;
+    width: 40vw;
+    height: 15vw;
+    object-fit: cover;
+}
+
+.school_info__detail {
+    position: relative;
+    margin: 0 32px;
+    width: 100%;
+}
+
+.school_info__detail h3 {
+    font-size: 32px;
+    font-weight: 900;
+    width: max-content;
+    margin-bottom: 12px;
+}
+
+.school_info__link {
+    text-decoration: underline;
+    color: #509726;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.school_info__mask {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transition: 0.3s;
+    top: 0;
+    left: 0;
+}
+
+.school_info__modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(255, 255, 255, 0.95);
+    z-index: 40;
+    display: none;
+    opacity: 0;
+    cursor: default;
+    transition: 0.5s;
+}
+
+.school_info__modal__image {
+    width: 50vw;
+    padding: 32px 5vw;
+}
+
+.school_info__modal__image > img {
+    width: 40vw;
+    height: 30vw;
+    object-fit: contain;
+    transition: 0.2s;
+}
+
+.school_info__modal__image__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1vw;
+    margin-top: 24px;
+}
+
+.school_info__modal__image__list img {
+    width: calc(34vw / 7);
+    height: calc(34vw / 7);
+    border-radius: 12px;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+.school_info__modal__detail {
+    width: 100%;
+    padding: 32px 5vw 32px 0;
+    position: relative;
+    overflow: auto;
+}
+
+.school_info__modal__detail h3 {
+    font-size: 24px;
+    width: max-content;
+    margin-bottom: 20px;
+}
+
+.school_info__modal__detail h4 {
+    font-size: 20px;
+    font-weight: 900;
+    margin: 12px 0 8px;
+}
+
+.school_info__modal__detail iframe {
+    margin: auto;
+    width: 45vw;
+    margin-top: 20px;
+}
+
+.school_info__modal__detail a {
+    text-decoration: underline;
+    color: #509726;
+    width: max-content;
+}
+
+.school_info__modal__close {
+    position: absolute;
+    top: 32px;
+    right: 64px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.modal-active {
+    display: flex;
+}
+
+@media (max-width: 1023px) {
+    .school_info__content {
+        display: block;
+        width: 80vw;
+        margin: 64px auto;
+    }
+
+    .school_info__thumbnail {
+        width: 100%;
+        height: 20vw;
+    }
+
+    .school_info__detail {
+        margin: 0;
+    }
+
+    .school_info__detail h3 {
+        font-size: 24px;
+    }
+
+    .school_info__link {
+        position: relative;
+        text-align: right;
+    }
+
+    .school_info__modal.active {
+        display: block;
+    }
+
+    .school_info__modal__image {
+        width: 90vw;
+        margin: 48px auto 0;
+        padding: 0;
+    }
+
+    .school_info__modal__image > img {
+        width: 100%;
+        height: 60vw;
+    }
+
+    .school_info__modal__image__list {
+        margin-top: 8px;
+    }
+
+    .school_info__modal__image__list img {
+        width: 12vw;
+        height: 12vw;
+        display: block;
+    }
+
+    .school_info__modal__detail {
+        padding: 0;
+        margin: 24px auto 48px;
+        width: 90vw;
+    }
+
+    .school_info__modal__detail h3 {
+        display: block;
+    }
+
+    .school_info__modal__detail iframe {
+        width: 90vw;
+    }
+
+    .school_info__modal__close {
+        position: fixed;
+        top: 8px;
+        right: 24px;
+        font-size: 20px;
+    }
+
+    .modal-active {
+        display: block;
+        height: 100vh;
+        padding: 24px 5vw;
+        overflow: auto;
+    }
+}

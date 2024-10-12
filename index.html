@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+    <section id="school_info" class="school_info">
+        <div class="section__title">
+            <h2>教室紹介</h2>
+            <img src="{% static 'main/svg/parallelogram_small.svg' %}">
+        </div>
+
+        <div id="school_info-1" class="school_info__content school_info__content--left">
+            <div class="school_info__thumbnail__wrapper">
+                <img class="school_info__thumbnail" src="{% static 'main/jpg/2022-04-29.jpg' %}">
+            </div>
+            <div class="school_info__detail">
+                <h3 class="highlight--green">京大本校</h3>
+                <p>京都大学の向かいに構え、2階には運営会社の株式会社DeMiAがあるBeEngineerの開発拠点・総本山です。中高生と講師の歳が近く、親しみやすい雰囲気が特徴です。</p>
+                <p class="school_info__link">クリックして教室の詳細を見る</p>
+            </div>
+            <div class="school_info__mask"></div>
+        </div>
+
+        <div id="school_info-2" class="school_info__content school_info__content--right">
+            <div class="school_info__thumbnail__wrapper">
+                <img class="school_info__thumbnail" src="{% static 'main/jpg/umeda_img.jpg' %}">
+            </div>
+            <div class="school_info__detail">
+                <h3 class="highlight--green">梅田校</h3>
+                <p>大阪大学を中心とした大学生スタッフが在籍し、手厚くサポートします。梅田の駅近くにあり、好アクセス・夜も安心です。</p>
+                <p class="school_info__link">クリックして教室の詳細を見る</p>
+            </div>
+            <div class="school_info__mask"></div>
+        </div>
+
+        <div id="school_info-3" class="school_info__content school_info__content--left">
+            <div class="school_info__thumbnail__wrapper">
+                <img class="school_info__thumbnail" src="{% static 'main/jpg/tokyo_kamiyacho.jpg' %}">
+            </div>
+            <div class="school_info__detail">
+                <h3 class="highlight--green">東京神谷町校</h3>
+                <p>2023年夏に、BeEngineerが東京に初進出した新規開校の校舎です。東京タワーのそばに校舎を構え、日本経済の中心で最先端のIT教育を実施していきます。</p>
+                <p class="school_info__link">クリックして教室の詳細を見る</p>
+            </div>
+            <div class="school_info__mask"></div>
+        </div>
+
+        <div id="school_info__modal" class="school_info__modal">
+            <div class="school_info__modal__image">
+                <img id="school_image" src="{% static 'main/jpg/2022-04-29.jpg' %}">
+                <div class="school_info__modal__image__list">
+                    <img src="">
+                    <img src="">
+                    <img src="">
+                    <img src="">
+                    <img src="">
+                    <img src="">
+                    <img src="">
+                </div>
+            </div>
+            <div class="school_info__modal__detail">
+                <h3 id="school_name" class="highlight--green"></h3>
+                <p id="school_explanation"></p>
+                <a id="school_teacher" href="" target="teacher-list">所属講師の紹介はこちら</a>
+                <h4>場所</h4>
+                <p id="school_address"></p>
+                <a id="school_maplink" href="" target="_blank">GoogleMapで開く</a>
+                <iframe id="school_map"
+                    src=""
+                    width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+                <p id="school_info__modal__close" class="school_info__modal__close">&#10006; close</p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        var dataList = {
+            1: [
+                "京大本校", // 校舎名
+                "京都大学の向かいに構え、2階には運営会社の株式会社DeMiAがあるBeEngineerの開発拠点・総本山です。京都大学での学びや受験経験、エンジニアとしての経験など、京大本校ならではのことを伝えていきます。歳の近い講師が授業を行い、親しみやすい雰囲気が特徴です。", // 校舎紹介文
+                "〒606-8301 京都府京都市左京区吉田泉殿町１−３４ ダイショウ百万遍ビル１階", // 住所
+                "https://goo.gl/maps/5iGwu95voB9fZNXC8", // GoogleMapリンク
+                `https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13068.53329590201!2d135.7787923!3d35.0283944!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x47f35e4463f2494d!2zQmVFbmdpbmVlciDkuqzlpKfnlJ_jgqjjg7Pjgrjjg4vjgqLjgavjgojjgovkuK3pq5jnlJ_jga7jgZ_jgoHjga7jg5fjg63jgrDjg6njg5_jg7PjgrDmlZnlrqQ!5e0!3m2!1sja!2sjp!4v1673201855194!5m2!1sja!2sjp`, // GoogleMapのタグ
+                "{% url 'teacher-list' %}?school_code_id=1", // 講師ページへのリンク
+                "{% static 'main/jpg/A7303575.jpg' %}", // 画像2
+                "{% static 'main/jpg/2022-04-29.jpg' %}", // 画像1
+                "{% static 'main/jpg/IMG_3117.JPG' %}", // 画像3
+                "{% static 'main/jpg/IMG_3133.JPG' %}", // 画像4
+                "{% static 'main/jpg/IMG_0685.JPG' %}", // 画像5
+                "{% static 'main/jpg/IMG_0920.JPG' %}", // 画像6
+                "{% static 'main/jpg/IMG_0143.JPG' %}", // 画像7
+            ],
+            2: [
+                "梅田校", // 校舎名
+                "大阪大学を中心とした大学生スタッフが在籍し、手厚いサポートで共に学んでいきます。大学の情報などプログラミング以外の学びも提供します。また、大阪梅田の駅近くに構え、好アクセス・夜も安心なのも特徴です。", // 校舎紹介文
+                "〒530-0012 大阪府大阪市北区芝田１丁目４−１４ 芝田町ビル ５階", // 住所
+                "https://goo.gl/maps/Kn7xbZkmhhaJ2Lff9", // GoogleMapリンク
+                "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1018.3054185430119!2d135.49674366204474!3d34.706629263298055!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6000e7bade6f89df%3A0x8766069fb44a5918!2zQmVFbmdpbmVlciDmooXnlLDmoKEg5Lit6auY55Sf44Gu44Gf44KB44Gu44OX44Ot44Kw44Op44Of44Oz44Kw5pWZ5a6k!5e0!3m2!1sja!2sjp!4v1676625446042!5m2!1sja!2sjp", // GoogleMapのタグ
+                "{% url 'teacher-list' %}?school_code_id=2", // 講師ページへのリンク
+                "{% static 'main/jpg/IMG_1402.JPG' %}", // 画像3
+                "{% static 'main/jpg/IMG_1399.JPG' %}", // 画像4
+                "{% static 'main/jpg/umeda_img.jpg' %}", // 画像5
+                "", // 画像6
+                "", // 画像7
+                "", // 画像1
+                "", // 画像2
+            ],
+            3: [
+                "東京神谷町校", // 校舎名
+                "2023年夏に、BeEngineerが東京に初進出した新規開校の校舎です。東京タワーのそばに校舎を構え、日本経済の中心で最先端のIT教育を実施していきます。", // 校舎紹介文
+                "〒106-0041 東京都港区麻布台２丁目４−５ メソニック39Mtビル 11階", // 住所
+                "https://goo.gl/maps/TAtLzLradXC8pL2e6", // GoogleMapリンク
+                `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.7179617826364!2d139.74083327483592!3d35.659319831178856!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188befaa97f1e1%3A0x18dbd5b70d7de85a!2zQmVFbmdpbmVlciDmnbHkuqznpZ7osLfnlLrmoKEg5Lit6auY55Sf44Gu44Gf44KB44Gu44OX44Ot44Kw44Op44Of44Oz44Kw5pWZ5a6k!5e0!3m2!1sja!2sjp!4v1684478088141!5m2!1sja!2sjp`, // GoogleMapのタグ
+                "{% url 'teacher-list' %}?school_code_id=1", // 講師ページへのリンク
+                "{% static 'main/jpg/tokyo_kamiyacho.jpg' %}",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+            ],
+            // 0: [ // 校舎コード
+            //     "", // 校舎名
+            //     "", // 校舎紹介文
+            //     "", // 住所
+            //     "", // GoogleMapリンク
+            //     "", // GoogleMapのタグ
+            //     "", // 講師ページへのリンク
+            //     "", // 画像1
+            //     "", // 画像2
+            //     "", // 画像3
+            //     "", // 画像4
+            //     "", // 画像5
+            //     "", // 画像6
+            //     "", // 画像7
+            // ],
+        };
+    </script>
+    <script src="./main.js"></script>
+</body>
+</html>
